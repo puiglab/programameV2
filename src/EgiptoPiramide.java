@@ -56,6 +56,7 @@ public class EgiptoPiramide {
                     if ((a * -1) - b < (b * -1) - c) System.out.println(a);
                     else if ((a * -1) - b == (b * -1) - c) System.out.println("EMPATE");
                     else System.out.println(c);
+
                 }
             }
         }
