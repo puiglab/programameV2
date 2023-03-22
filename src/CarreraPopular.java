@@ -6,20 +6,26 @@ public class CarreraPopular {
         int entradas = sc.nextInt();
         sc.nextLine();
         for (int i = 0; i < entradas; i++) {
-            int hermanos = 0;
+            Map<String, Integer> con = new HashMap<>();
             String linea = sc.nextLine();
-            ArrayList<String> apellidos = new ArrayList<>();
             String[] lineassplit;
+            int cont =0;
             while (!linea.contains("====")) {
                 lineassplit = linea.split(",");
-                apellidos.add(lineassplit[0].toUpperCase(Locale.ROOT));
+                if(con.containsKey(lineassplit[0].toLowerCase(Locale.ROOT))){
+                    con.put(lineassplit[0].toLowerCase(Locale.ROOT), con.get(lineassplit[0].toLowerCase(Locale.ROOT))+1);
+                }
+                else{
+                    con.put(lineassplit[0].toLowerCase(Locale.ROOT),0);
+                }
                 linea = sc.nextLine();
+                ++cont;
             }
-            Set<String> her = new HashSet<>();
-            apellidos.forEach(s -> her.add(s));
-            if(her.size()==1)hermanos=apellidos.size();
-            else hermanos=(apellidos.size()-her.size())+1;
-            System.out.println(apellidos.size()+" "+hermanos);
+            int sum = 0;
+            System.out.println(cont+" "+(cont-sum));
+
+
         }
+
     }
 }
